@@ -10,7 +10,15 @@
 #include <open62541/types_generated_handling.h>
 
 #include <stdio.h>
+#if defined(_MSC_VER)
+#include <windows.h>
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
+#else
 #include <unistd.h>
+#endif
+
+
 
 /* Internal headers */
 #include "ua_pubsub_networkmessage.h"

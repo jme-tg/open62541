@@ -43,6 +43,10 @@ add_example(server_nodeset server_nodeset.c
             ${PROJECT_BINARY_DIR}/src_generated/open62541/example_nodeids.h)
 add_dependencies(server_nodeset open62541-generator-ns-example open62541-generator-ids_example)
 
+target_include_directories(server_nodeset PUBLIC
+    ${PROJECT_BINARY_DIR}/src_generated
+)
+
 if(UA_NAMESPACE_ZERO STREQUAL "FULL")
     ua_generate_nodeset_and_datatypes(
         NAME "testnodeset"
